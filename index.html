@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>wegowow — One family. Three ways to go further.</title>
+<meta name="description" content="wegowow is the family company behind WeGoAI — EU-certified AI on self-owned GPUs — and wegoze — open data and consultancy for the zero-emission transition.">
+<style>
+/* ============================================================
+   wegowow — family landing
+   Shared design tokens with WeGoAI + wegoze (soft beach palette)
+   ink on sand 11.04:1 AAA · white on sea 7.69:1 AAA
+   ============================================================ */
+:root {
+  --sand:    #FBF7F1;
+  --dune:    #F0E6D8;
+  --surface: #FFFFFF;
+  --ink:     #17393F;
+  --muted:   #546B6F;
+  --sea:     #0F5C63;
+  --shallow: #4ECDC4;
+  --seafoam: #CDE8DF;
+  --sky:     #DCEAF2;
+  --coral:   #BC4626;
+  --sun:     #F2C14E;
+  --radius:  16px;
+  --shadow:  0 1px 2px rgba(23,57,63,.05), 0 8px 32px rgba(23,57,63,.09);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--sand);
+  color: var(--ink);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ---------- animated hero ---------- */
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 1.5rem 5rem;
+  overflow: hidden;
+}
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: .55;
+  animation: drift 18s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+.orb-1 { width: 46vw; height: 46vw; background: var(--shallow); top: -18vw; left: -12vw; }
+.orb-2 { width: 38vw; height: 38vw; background: var(--sun);   bottom: -14vw; right: -10vw; animation-delay: -6s; }
+.orb-3 { width: 26vw; height: 26vw; background: var(--coral); top: 30%; right: 18%; opacity:.28; animation-delay: -12s; }
+@keyframes drift {
+  from { transform: translate(0,0) scale(1); }
+  to   { transform: translate(4vw, 3vh) scale(1.12); }
+}
+.hero-inner { position: relative; z-index: 1; max-width: 880px; }
+.kicker {
+  display: inline-block;
+  font-size: .8rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--sea);
+  background: rgba(255,255,255,.75);
+  border: 1px solid var(--dune);
+  border-radius: 999px;
+  padding: .45rem 1.1rem;
+  backdrop-filter: blur(6px);
+}
+.hero h1 {
+  margin-top: 1.4rem;
+  font-size: clamp(3rem, 9vw, 6.2rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+.hero h1 .wow {
+  background: linear-gradient(92deg, var(--sea) 0%, var(--shallow) 45%, var(--coral) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero p {
+  margin: 1.6rem auto 0;
+  max-width: 620px;
+  font-size: 1.2rem;
+  color: var(--muted);
+}
+.hero-cta { margin-top: 2.4rem; display: flex; gap: .9rem; justify-content: center; flex-wrap: wrap; }
+.btn {
+  display: inline-block;
+  font-weight: 600; font-size: 1rem;
+  padding: .85rem 1.7rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--sea); color: #fff; box-shadow: 0 6px 24px rgba(15,92,99,.35); }
+.btn-primary:hover { box-shadow: 0 10px 32px rgba(15,92,99,.45); }
+.btn-ghost { background: rgba(255,255,255,.8); color: var(--ink); border: 1px solid var(--dune); }
+.scroll-hint {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  color: var(--muted); font-size: .85rem; letter-spacing: .1em; text-transform: uppercase;
+  animation: bob 2.4s ease-in-out infinite;
+}
+@keyframes bob { 0%,100%{transform:translate(-50%,0)} 50%{transform:translate(-50%,8px)} }
+
+/* ---------- family cards ---------- */
+section { padding: 5.5rem 1.5rem; }
+.wrap { max-width: 1080px; margin: 0 auto; }
+.section-head { text-align: center; margin-bottom: 3rem; }
+.section-head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; letter-spacing: -.02em; }
+.section-head p { color: var(--muted); margin-top: .6rem; max-width: 640px; margin-left:auto; margin-right:auto; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.4rem; }
+.card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--dune);
+  border-radius: var(--radius);
+  padding: 2.2rem 2rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform .22s ease, box-shadow .22s ease;
+  display: flex; flex-direction: column;
+}
+.card:hover { transform: translateY(-6px); box-shadow: 0 2px 4px rgba(23,57,63,.06), 0 18px 48px rgba(23,57,63,.16); }
+.card::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 5px;
+}
+.card.ai::before    { background: linear-gradient(90deg, var(--sea), var(--shallow)); }
+.card.ze::before    { background: linear-gradient(90deg, var(--sea), var(--sun)); }
+.card.engine::before{ background: linear-gradient(90deg, var(--coral), var(--sun)); }
+.card .brand {
+  font-size: 1.5rem; font-weight: 800; letter-spacing: -.02em;
+}
+.card .brand em { font-style: normal; }
+.card.ai .brand em    { color: var(--sea); }
+.card.ze .brand em    { color: var(--sea); }
+.card .tag { font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
+.card p { color: var(--muted); margin: .8rem 0 1.4rem; flex: 1; }
+.card .go { font-weight: 700; color: var(--sea); text-decoration: none; }
+.card .go::after { content: " →"; transition: margin .18s ease; }
+.card .go:hover::after { margin-left: .3rem; }
+.card .badge {
+  display: inline-block; align-self: flex-start;
+  font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--sea); background: var(--seafoam);
+  border-radius: 999px; padding: .3rem .8rem; margin-bottom: 1rem;
+}
+
+/* ---------- the strip: what unites us ---------- */
+.strip { background: var(--sea); color: #fff; }
+.strip .section-head h2 { color: #fff; }
+.strip .section-head p { color: var(--seafoam); }
+.pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
+.pillar {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.5rem;
+}
+.pillar h3 { font-size: 1.05rem; margin-bottom: .4rem; }
+.pillar p { font-size: .95rem; color: var(--seafoam); }
+.pillar .num { font-size: 2rem; font-weight: 800; color: var(--sun); display: block; margin-bottom: .3rem; }
+
+/* ---------- footer ---------- */
+footer {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--muted);
+  font-size: .9rem;
+  border-top: 1px solid var(--dune);
+}
+footer a { color: var(--sea); text-decoration: none; font-weight: 600; }
+footer a:hover { text-decoration: underline; }
+.dot { display:inline-block; width:.55rem; height:.55rem; border-radius:50%; background: var(--shallow); margin-right:.4rem; vertical-align: baseline; }
+
+/* ---------- reveal on scroll ---------- */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .orb, .scroll-hint { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="hero-inner">
+    <span class="kicker">The family company</span>
+    <h1>We go <span class="wow">wow</span>.</h1>
+    <p>One roof, two engines: European AI you can trust, and open data that makes the
+    zero-emission transition legible. Built on our own hardware, in Europe, on purpose.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#family">Meet the family</a>
+      <a class="btn btn-ghost" href="#engine">See the engine</a>
+    </div>
+  </div>
+  <div class="scroll-hint">scroll</div>
+</section>
+
+<section id="family">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Two companies, one standard</h2>
+      <p>Every wegowow company sells the same thing in a different language:
+      infrastructure you can inspect, data you can check, and no nonsense.</p>
+    </div>
+    <div class="cards">
+      <div class="card ai reveal">
+        <span class="badge">EU AI service</span>
+        <div class="brand">WeGo<em>AI</em></div>
+        <span class="tag">Build with AI that never leaves Europe</span>
+        <p>Chat, image generation and a single OpenAI-compatible model endpoint —
+        served on self-owned GPUs in the EU. GDPR by architecture, not by policy page.
+        No US clouds, no silent model swaps.</p>
+        <a class="go" href="https://wegoai.duckdns.org">wegoai.duckdns.org</a>
+      </div>
+      <div class="card ze reveal">
+        <span class="badge">Transition consultancy</span>
+        <div class="brand">wego<em>ze</em></div>
+        <span class="tag">Open data for the zero-emission transition</span>
+        <p>Live dashboards built from public registries — charging points, EV prices,
+        parcel points, filings — plus hands-on AI and data consultancy for companies
+        making the transition. Every figure names its source.</p>
+        <a class="go" href="https://wegoze.duckdns.org">wegoze.duckdns.org</a>
+      </div>
+      <div class="card engine reveal" id="engine">
+        <span class="badge">The engine</span>
+        <div class="brand">Own the <em>iron</em></div>
+        <span class="tag">What both companies run on</span>
+        <p>The same European hardware serves both: GPU inference, data pipelines and
+        dashboards under our own roof. That is why we can promise EU data residency
+        as a property of the stack — and price like an independent.</p>
+        <a class="go" href="mailto:psvanzyl@gmail.com">Talk to us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="strip">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Why one family</h2>
+      <p>The alphabet companies keep their secrets. We keep our receipts.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar reveal"><span class="num">EU</span><h3>European by construction</h3><p>Data, servers and models stay in Europe. Not a compliance checkbox — a physical fact.</p></div>
+      <div class="pillar reveal"><span class="num">Open</span><h3>Checkable by default</h3><p>Every dashboard names its sources; every model endpoint names its model. Nothing hidden behind a logo.</p></div>
+      <div class="pillar reveal"><span class="num">Own</span><h3>Self-owned infrastructure</h3><p>Our GPUs, our racks, our electricity bill. No brokers, no resellers, no data resale.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><span class="dot"></span><strong>wegowow</strong> — the family behind
+  <a href="https://wegoai.duckdns.org">WeGoAI</a> and
+  <a href="https://wegoze.duckdns.org">wegoze</a>.</p>
+  <p>&copy; 2026 wegowow &middot; <a href="mailto:psvanzyl@gmail.com">psvanzyl@gmail.com</a></p>
+</footer>
+
+<script>
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
